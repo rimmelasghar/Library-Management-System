@@ -3,6 +3,29 @@
     <title>Hello World</title> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.d-flex{
+  align-items: center;
+  padding-top: 15px;
+}
+#myInput{
+  width: 165px;
+}
+
+
+</style>
 </head>
 
   <body> 
@@ -10,7 +33,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}">Libary App</a>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search for a book" aria-label="Search" id="myInput" >
+            <input class="form-control me-1 " type="search" placeholder="Search for a book" aria-label="Search" id="myInput" >
           </form>
         </div>
       </nav>
@@ -28,7 +51,7 @@
       <br>
     <div class="container">
     <div class="table-responsive">
-        <table class="table table-borderless table-hover">
+        <table class="table table-borderless table-hover" id="search-table">
             <thead>
               <tr class="table-dark">
                 <!-- <th scope="col">#</th> -->
@@ -51,13 +74,16 @@
                 {% endif %}
               </tr>
               {% endfor %}
+              
             </tbody>
           </table>
       </div>
 <div class="container my-5">
+  
   <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #3f51b5">
+  <footer class="text-center text-white" style="background-color: #3f51b5" id="footer">
     <!-- Grid container -->
+    <label style="align-items: center;" id="count"></label>
     <div
          class="text-center p-3"
          style="background-color: black"
@@ -69,6 +95,8 @@
   </footer>
   <!-- Footer -->
 </div>
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
@@ -79,6 +107,8 @@
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    var rowCount = $('#search-table >tbody >tr:visible').length;
+        document.getElementById('count').innerHTML = "Books Found : "+ rowCount;
                 });
             });
         });
