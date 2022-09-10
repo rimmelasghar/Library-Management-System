@@ -26,10 +26,10 @@ python manage.py runserver
 
 ## Application View:
 ### Landing Page:
-![landingpage3](https://github.com/rimmelasghar/Library-Management-System/tree/master/images/lib1.PNG)
+![landingpage3](https://github.com/rimmelasghar/Library-Management-System/blob/master/images/lib1.PNG)
 
  - Added Search Functionality
-![landingpage2](https://github.com/rimmelasghar/Library-Management-System/tree/master/images/lib2.PNG)
+![landingpage2](https://github.com/rimmelasghar/Library-Management-System/blob/master/images/lib2.PNG)
 
 
 Code By Rimmel with ❤
